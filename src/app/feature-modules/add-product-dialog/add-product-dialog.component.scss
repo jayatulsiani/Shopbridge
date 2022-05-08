@@ -1,0 +1,19 @@
+.max-width-container {
+    @media(min-width: 991px) {
+        max-width: 920px !important;
+        /*min-width: 56vw !important;*/
+        width: 950px !important;
+    }
+    &.max-wd-ht {
+        @media(min-width: 991px) {
+            max-width: 890px !important;
+            min-width: 800px;
+            min-height: 70vh;
+            max-height: 65vh;
+        }
+    }
+}
+
+.mat-dialog-title.mat-toolbar-multiple-rows {
+    min-height: 56px;
+  }

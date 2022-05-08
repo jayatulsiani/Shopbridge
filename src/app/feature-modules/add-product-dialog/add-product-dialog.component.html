@@ -1,0 +1,56 @@
+<mat-toolbar mat-dialog-title>
+    <mat-toolbar-row>
+        <h2>Add Product</h2>
+    </mat-toolbar-row>
+</mat-toolbar>
+<form #addProductForm="ngForm" (ngSubmit)="addProductForm.valid && addProduct()">
+    <mat-dialog-content class="max-width-container">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <div fxFlex="100" fxLayout="column">
+                    <mat-form-field>
+                        <input #productName="ngModel" [(ngModel)]="productRequest.name"
+                               [placeholder]="'Product Name'" 
+                               matInput name="productname"  required
+                               type="text">
+                        <div *ngIf="productName.errors && (productName.touched || productName.dirty || addProductForm.submitted)">
+                        <span [hidden]="!productName.errors?.['required']" class="text-danger form-message" translate>
+                            Please Enter Product Name
+                        </span>
+                        </div>
+                    </mat-form-field>
+                <mat-form-field>
+                    <input #productDesc="ngModel" [(ngModel)]="productRequest.description"
+                           [placeholder]="'Product Description'"
+                           matInput name="productDescription" oninput="validity.valid || (value='');"
+                           required type="text">
+                    <div *ngIf="productDesc.errors && (productDesc.touched || productDesc.dirty || addProductForm.submitted)">
+                        <span [hidden]="!productDesc.errors?.['required']" class="text-danger form-message" translate>
+                            Please Enter Product Description
+                        </span>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input #productAmt="ngModel" [(ngModel)]="productRequest.price"
+                           [placeholder]="'Product Price'" (keypress)="preventAlphabets($event)" 
+                           matInput name="productAmount" oninput="validity.valid || (value='');"
+                           required type="number">
+                    <div *ngIf="productAmt.errors && (productAmt.touched || productAmt.dirty || addProductForm.submitted)">
+                        <span [hidden]="!productAmt.errors?.['required']" class="text-danger form-message" translate>
+                            Please Enter Product Price
+                        </span>
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button [mat-dialog-close]="false" color="accent" mat-raised-button type="button">
+           Cancel
+        </button>
+        <button color="primary" mat-raised-button type="submit" [disabled]="!addProductForm.valid">
+            <span *ngIf="!isEdit">Add</span>
+            <span *ngIf="isEdit">Update</span>
+        </button>
+    </mat-dialog-actions>
+</form>

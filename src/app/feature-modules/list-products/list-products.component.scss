@@ -1,0 +1,50 @@
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+table {
+    width: 100%;
+  }
+
+  .material-icons{
+    font-family: 'Material Icons' !important;
+}
+
+  delete-product {
+    background-color: red;
+  }
+
+  td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+    justify-content: center !important;
+}
+
+  .mat-dialog-content {
+    max-height: 100vh !important;
+    height: calc(100vh - 210px) !important;
+    margin: 0;
+    padding: 8px 24px;
+  }
+  
+  .add-product {
+      margin-left: 5px;
+  }
+
+  button{
+    /*Change the width as much as you like, but make sure 
+    margin-left and margin-right + width = 100%*/
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+    margin-top: 5%;
+    align-items: center;
+   
+}
+
+.heading-title{
+ 
+  text-align: center !important;
+}
